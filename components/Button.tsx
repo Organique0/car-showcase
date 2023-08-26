@@ -22,7 +22,7 @@ const Button = ({ title, ContainerStyles, textStyles, rightIcon, handleClick, bt
                 </div>
             )}
             {rightIcon && typeof rightIcon === 'object' && (
-                <div className='relative w-6 h-6'>
+                <div className='relative w-6 h-6 ml-1'>
                     {rightIcon}
                 </div>
             )}
