@@ -11,7 +11,7 @@ const Button = ({ title, ContainerStyles, textStyles, rightIcon, handleClick, bt
             <span className={`flex-1 ${textStyles}`}>
                 {title}
             </span>
-            {rightIcon && (
+            {rightIcon && typeof rightIcon === 'string' && (
                 <div className='relative w-6 h-6'>
                     <Image
                         src={rightIcon}
@@ -19,6 +19,11 @@ const Button = ({ title, ContainerStyles, textStyles, rightIcon, handleClick, bt
                         fill
                         className='object-contain'
                     />
+                </div>
+            )}
+            {rightIcon && typeof rightIcon === 'object' && (
+                <div className='relative w-6 h-6'>
+                    {rightIcon}
                 </div>
             )}
         </button>

@@ -9,7 +9,7 @@ const Navbar = () => {
                 <Link href="/" className="flex justify-center items-center">
                     <Image src="/logo.svg" alt="car showcase logo" width={118} height={18} className="object-contain" />
                 </Link>
-                <Button title="Sign in" styles="text-primary-blue rounded-full bg-white min-w-[130px]" />
+                <Button title="Sign in" ContainerStyles="text-primary-blue rounded-full bg-white min-w-[130px]" textStyles="font-semibold" />
             </nav>
         </header>
     )

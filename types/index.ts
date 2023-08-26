@@ -1,10 +1,8 @@
-import { MouseEventHandler } from "react";
-
 export interface ButtonProps {
     title: string,
     ContainerStyles?: string,
     textStyles?: string,
-    rightIcon?: string,
+    rightIcon?: string | JSX.Element,
     isDisabled?: boolean,
     handleClick?: () => void,
     btnType?: "button" | "submit",
