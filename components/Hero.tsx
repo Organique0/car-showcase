@@ -1,7 +1,15 @@
+"use client";
+
 import React from 'react'
 import Image from "next/image";
+import Button from './Button';
 
 export default function Hero() {
+
+    const handleScroll = () => {
+
+    }
+
     return (
         <div className='hero'>
             <div className='flex-1 pt-36 padding-x'>
@@ -11,6 +19,12 @@ export default function Hero() {
                 <p className='hero__subtitle'>
                     Streamline your car rental expirience with our effortless booking process
                 </p>
+                <Button title="explore cars" styles="bg-primary-blue text-white rounded-full mt-10" handleClick={handleScroll} />
+            </div>
+            <div className='hero__image-container'>
+                <div className='hero__image'>
+                    <Image />
+                </div>
             </div>
         </div>
     )
