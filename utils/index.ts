@@ -48,11 +48,8 @@ export const generateCarImageUrl = (car: Car, params: FilterProps, angle?: strin
     const url = new URL("https://cdn.imagin.studio/getimage");
     const { make, model, year } = car;
 
-    console.log(params);
     const formattedManufa = params?.manufa?.replace(/ /g, "_");
     const formattedModel = params?.model?.replace(/ /g, "_");
-    console.log(formattedManufa);
-    console.log(formattedModel);
 
     url.searchParams.append('customer', process.env.NEXT_PUBLIC_IMAGIN_API_KEY || '');
     url.searchParams.append('make', formattedManufa || make);
