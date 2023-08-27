@@ -1,22 +1,25 @@
 "use client";
-import { Car } from '@/types'
+import { Car, FilterProps } from '@/types'
 import Image from 'next/image'
 import Button from './Button'
-import { calculateCarRent } from '@/utils';
+import { calculateCarRent, generateCarImageUrl } from '@/utils';
 import { useState } from 'react';
 import CarDetails from './CarDetails';
 
 
 interface CarCardProps {
     car: Car,
+    params: FilterProps,
 }
 
-const CarCard = ({ car }: CarCardProps) => {
+const CarCard = ({ car, params }: CarCardProps) => {
     const { city_mpg, year, make, model, transmission, drive } = car;
 
     const carRent = calculateCarRent(city_mpg, year);
 
     const [isOpen, setIsOpen] = useState(false);
+
+    //console.log(params.manufa.replace(" ", "_"));
 
     return (
         <div className='car-card group'>
@@ -34,15 +37,11 @@ const CarCard = ({ car }: CarCardProps) => {
                     /day
                 </span>
             </p>
+
             <div className='relative w-full h-40 my-3 object-contain'>
-                <Image
-                    src="/hero.png"
-                    alt='car model'
-                    fill
-                    priority
-                    className='object-contain'
-                />
+                <Image src={generateCarImageUrl(car, params)} alt='car model' fill priority className='object-contain' />
             </div>
+
             <div className='relative flex w-full mt-2'>
                 <div className='
                 flex 

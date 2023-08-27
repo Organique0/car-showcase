@@ -38,3 +38,11 @@ export interface CarDetailsProps {
     setIsOpen: (isOpen: boolean) => void,
     car: Car,
 }
+
+export interface FilterProps {
+    manufa: string,
+    model: string,
+    year: number,
+    limit: number,
+    fuel: string,
+}
