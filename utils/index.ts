@@ -1,3 +1,5 @@
+import { env } from "process";
+
 const axios = require('axios');
 
 export async function fetchCars() {
@@ -6,7 +8,7 @@ export async function fetchCars() {
         url: 'https://cars-by-api-ninjas.p.rapidapi.com/v1/cars',
         params: { model: 'corolla' },
         headers: {
-            'X-RapidAPI-Key': 'bb810ec619mshd3fcda31070b0c5p1f9e9djsnea6cf1a8bdb6',
+            'X-RapidAPI-Key': env.RapidAPI,
             'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com'
         }
     };
