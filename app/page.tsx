@@ -46,7 +46,6 @@ export default async function Home({ searchParams }: { searchParams: FilterProps
         ) : (
           <div className="h-[20rem] flex justify-center items-center">
             <h2 className="text-black text-xl font-bold">no results</h2>
-            <p>{allCars?.message}</p>
           </div>
         )}
       </div>
