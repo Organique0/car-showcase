@@ -10,6 +10,12 @@ export interface ButtonProps {
 
 export interface CustomFilterProps {
     title: string,
+    options: OptionProps[],
+}
+
+export interface OptionProps {
+    title: string,
+    value: string,
 }
 
 export interface SearchManufacturerProps {
