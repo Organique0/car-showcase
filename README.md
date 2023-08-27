@@ -1,4 +1,6 @@
-React, Next JS 13, TypeScript, Tailwind CSS
+React, Next JS 13, TypeScript, Tailwind CSS Very quick and simple project with the main focus on fetching data from APIs, displaying the data and allowing you to search and filter it.
+
+This branch is actually the original one, but had to be converted to client side rendering because of a bug. Functionality wise it is the same tho.
 
 Tutorial by @javascriptmastery. 
 Car images are from https://www.imagin.studio/car-image-api
