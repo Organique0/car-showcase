@@ -24,7 +24,7 @@ const SearchBar = () => {
     const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (manufa === '' || model === '') {
+        if (manufa === '' && model === '') {
             return alert('Please enter a manufacturer and model');
         }
 

@@ -16,7 +16,7 @@ export async function fetchCars(filters: FilterProps) {
             fuel_type: filters.fuel,
         },
         headers: {
-            'X-RapidAPI-Key': env.RapidAPI,
+            'X-RapidAPI-Key': env.RAPID_API_KEY,
             'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com'
         }
     };
