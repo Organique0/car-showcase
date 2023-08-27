@@ -1,3 +1,5 @@
+React, Next JS 13, TypeScript, Tailwind CSS
+
 Tutorial by @javascriptmastery. 
 Thanks to https://www.imagin.studio for providing us with an api key for their car images. 
 They have an amazing api that allows you to access high quality car models that you can showcase them on your site.
