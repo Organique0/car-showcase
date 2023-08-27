@@ -1,9 +1,10 @@
 "use client";
 import { Car } from '@/types'
 import Image from 'next/image'
-import { Button } from '.'
+import Button from './Button'
 import { calculateCarRent } from '@/utils';
 import { useState } from 'react';
+import CarDetails from './CarDetails';
 
 
 interface CarCardProps {
@@ -15,7 +16,7 @@ const CarCard = ({ car }: CarCardProps) => {
 
     const carRent = calculateCarRent(city_mpg, year);
 
-    const [open, setOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <div className='car-card group'>
@@ -90,10 +91,12 @@ const CarCard = ({ car }: CarCardProps) => {
                         ContainerStyles='w-full py-[16px] rounded-full bg-primary-blue'
                         textStyles='text-[14px] text-white font-bold leading-[17px]'
                         rightIcon='/right-arrow.svg'
-                        handleClick={() => setOpen(true)}
+                        handleClick={() => setIsOpen(true)}
                     />
                 </div>
             </div>
+
+            <CarDetails isOpen={isOpen} setIsOpen={() => setIsOpen(!isOpen)} car={car} />
         </div>
     )
 }
