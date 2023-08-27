@@ -1,6 +1,8 @@
 React, Next JS 13, TypeScript, Tailwind CSS
 Very quick and simple project with the main focus on fetching data from APIs, displaying the data and allowing you to search and filter it.
 
+This branch has the code that is moslty client rendered because of an anoying bug that scrolls the page to the top everytime you change a filter.
+
 Tutorial by @javascriptmastery. 
 Car images are from https://www.imagin.studio/car-image-api
 They have an amazing api that allows you to access high quality car models that you can showcase them on your site.
