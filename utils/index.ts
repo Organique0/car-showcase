@@ -1,6 +1,5 @@
 import { manufacturers } from "@/constants";
 import { Car, FilterProps } from "@/types";
-import { env } from "process";
 
 const axios = require('axios');
 
@@ -16,7 +15,7 @@ export async function fetchCars(filters: FilterProps) {
             fuel_type: filters.fuel,
         },
         headers: {
-            'X-RapidAPI-Key': env.RapidAPI,
+            'X-RapidAPI-Key': process.env.NEXT_PUBLIC_RAPID_API_KEY,
             'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com'
         }
     };
@@ -44,16 +43,16 @@ export const calculateCarRent = (city_mpg: number, year: number) => {
     return rentalRatePerDay.toFixed(0);
 };
 
-export const generateCarImageUrl = (car: Car, params: FilterProps, angle?: string) => {
+export const generateCarImageUrl = (car: Car, angle?: string) => {
     const url = new URL("https://cdn.imagin.studio/getimage");
     const { make, model, year } = car;
 
-    const formattedManufa = params?.manufa?.replace(/ /g, "_");
-    const formattedModel = params?.model?.replace(/ /g, "_");
+    //Tesla I think is the only one with a space in model name
+    //so I had to make so customizations for that
 
     url.searchParams.append('customer', process.env.NEXT_PUBLIC_IMAGIN_API_KEY || '');
-    url.searchParams.append('make', formattedManufa || make);
-    url.searchParams.append('modelFamily', formattedModel || model.split(" ")[0]);
+    url.searchParams.append('make', make);
+    url.searchParams.append('modelFamily', make != "tesla" ? model.split(" ")[0] : model.split(" ")[1]);
     url.searchParams.append('zoomType', 'fullscreen');
     url.searchParams.append('modelYear', `${year}`);
     url.searchParams.append('angle', `${angle}`);

@@ -6,17 +6,12 @@ import { useRouter } from 'next/navigation';
 import { Listbox, Transition } from '@headlessui/react';
 import { updateSearchParams } from '@/utils';
 
-const CustomFilter = ({ title, options }: CustomFilterProps) => {
-    const router = useRouter();
+function CustomFilter<T>({ title, options, setFilter }: CustomFilterProps<T>) {
     const [selected, setSelected] = React.useState(options[0]);
-
-    const handleUpdateParams = (e: { title: string, value: string }) => {
-        router.push(updateSearchParams(title, e.value.toLowerCase()));
-    }
 
     return (
         <div className='w-fit'>
-            <Listbox value={selected} onChange={(e) => { setSelected(e); handleUpdateParams(e) }}>
+            <Listbox value={selected} onChange={(e) => { setSelected(e); setFilter(e.value as T) }}>
                 <div className='relative w-fit z-10'>
                     <Listbox.Button className='custom-filter__btn'>
                         <span>{selected.title}</span>

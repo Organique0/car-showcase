@@ -7,7 +7,7 @@ import { manufacturers } from '@/constants';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
 
 
-const SearchManufacturer = ({ manufa, setManufa }: SearchManufacturerProps) => {
+const SearchManufacturer = ({ selected, setSelected }: SearchManufacturerProps) => {
     const [query, setQuery] = useState('');
 
     const filteredManufa =
@@ -18,7 +18,7 @@ const SearchManufacturer = ({ manufa, setManufa }: SearchManufacturerProps) => {
             ));
     return (
         <div className='search-manufacturer'>
-            <Combobox value={manufa} onChange={setManufa}>
+            <Combobox value={selected} onChange={setSelected}>
                 <div className='relative w-full'>
                     <Combobox.Button className="absolute top-[14px]">
                         <Image src="/car-logo.svg" width={20} height={20} className='ml-4' alt='car logo' />
