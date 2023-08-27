@@ -43,7 +43,7 @@ export interface CarDetailsProps {
     isOpen: boolean,
     setIsOpen: (isOpen: boolean) => void,
     car: Car,
-    carUrl: string,
+    params: FilterProps,
 }
 
 export interface FilterProps {

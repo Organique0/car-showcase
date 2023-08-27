@@ -21,8 +21,6 @@ const CarCard = ({ car, params }: CarCardProps) => {
 
     //console.log(params.manufa.replace(" ", "_"));
 
-    const carUrl = generateCarImageUrl(car, params);
-
     return (
         <div className='car-card group'>
             <div className="car-card__content">
@@ -41,7 +39,7 @@ const CarCard = ({ car, params }: CarCardProps) => {
             </p>
 
             <div className='relative w-full h-40 my-3 object-contain'>
-                <Image src={carUrl} alt='car model' fill priority className='object-contain' />
+                <Image src={generateCarImageUrl(car, params)} alt='car model' fill priority className='object-contain' />
             </div>
 
             <div className='relative flex w-full mt-2'>
@@ -97,7 +95,7 @@ const CarCard = ({ car, params }: CarCardProps) => {
                 </div>
             </div>
 
-            <CarDetails isOpen={isOpen} setIsOpen={() => setIsOpen(!isOpen)} car={car} carUrl={carUrl} />
+            <CarDetails isOpen={isOpen} setIsOpen={() => setIsOpen(!isOpen)} car={car} params={params} />
         </div>
     )
 }
