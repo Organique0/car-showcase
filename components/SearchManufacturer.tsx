@@ -25,7 +25,7 @@ const SearchManufacturer = ({ manufa, setManufa }: SearchManufacturerProps) => {
                     </Combobox.Button>
                     <Combobox.Input
                         className="search-manufacturer__input"
-                        placeholder='Tesla'
+                        placeholder='Volkswagen'
                         displayValue={(manufa: string) => (
                             manufa
                         )}

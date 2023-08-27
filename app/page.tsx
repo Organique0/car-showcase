@@ -1,5 +1,6 @@
 import { CustomFilter, Hero, SearchBar } from "@/components";
 import CarCard from "@/components/CarCard";
+import ShowMore from "@/components/ShowMore";
 import { yearsOfProduction, fuels } from "@/constants";
 import { FilterProps } from "@/types";
 import { fetchCars } from "@/utils";
@@ -12,6 +13,7 @@ export default async function Home({ searchParams }: { searchParams: FilterProps
     limit: searchParams.limit || 10,
     fuel: searchParams.fuel || '',
   });
+
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length === 0 || !allCars;
   return (
@@ -36,9 +38,13 @@ export default async function Home({ searchParams }: { searchParams: FilterProps
                 <CarCard car={car} params={searchParams} />
               ))}
             </div>
+            <ShowMore
+              pageNumber={(searchParams.limit || 10) / 10}
+              isNext={(searchParams.limit || 10) > allCars.length}
+            />
           </section>
         ) : (
-          <div>
+          <div className="h-[20rem] flex justify-center items-center">
             <h2 className="text-black text-xl font-bold">no results</h2>
             <p>{allCars?.message}</p>
           </div>
